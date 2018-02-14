@@ -41,6 +41,7 @@ class Game:
         logging.info('Initializing new game')
 
         self.character = Character('Boromir')
+        self.character.abilities.randomize_values()
 
         # TODO
 

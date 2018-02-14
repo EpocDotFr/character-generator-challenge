@@ -1,12 +1,13 @@
 from . import classes
 
 
-class BaseSkill:
-    pass
+class BaseCharacterSkill:
+    """Base skill to inherit from."""
+    applicable_classes = []
 
 
-class StealthSkill(BaseSkill):
-    id = 2
+class StealthCharacterSkill(BaseCharacterSkill):
+    id = 'stealth'
     name = 'Stealth'
 
     applicable_classes = [
@@ -14,8 +15,8 @@ class StealthSkill(BaseSkill):
     ]
 
 
-class FightSkill(BaseSkill):
-    id = 4
+class FightCharacterSkill(BaseCharacterSkill):
+    id = 'fight'
     name = 'Fight'
 
     applicable_classes = [

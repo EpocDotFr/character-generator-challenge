@@ -1,24 +1,25 @@
-__all__ = [
-    'WarriorCharacterClass',
-    'WizardCharacterClass',
-    'ThiefCharacterClass'
-]
-
-
 class BaseCharacterClass:
+    """Base character class to inherit from."""
     pass
 
 
 class WarriorCharacterClass(BaseCharacterClass):
-    id = 2
+    id = 'warrior'
     name = 'Warrior'
 
 
 class WizardCharacterClass(BaseCharacterClass):
-    id = 4
+    id = 'wizard'
     name = 'Wizard'
 
 
 class ThiefCharacterClass(BaseCharacterClass):
-    id = 8
+    id = 'thief'
     name = 'Thief'
+
+
+ALL = [
+    WarriorCharacterClass,
+    WizardCharacterClass,
+    ThiefCharacterClass
+]

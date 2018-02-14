@@ -1,30 +1,31 @@
-__all__ = [
-    'HumanCharacterRace',
-    'ElfCharacterRace',
-    'DwarfCharacterRace',
-    'OrcCharacterRace'
-]
-
-
 class BaseCharacterRace:
+    """Base character race to inherit from."""
     pass
 
 
 class HumanCharacterRace(BaseCharacterRace):
-    id = 2
+    id = 'human'
     name = 'Human'
 
 
 class ElfCharacterRace(BaseCharacterRace):
-    id = 4
+    id = 'elf'
     name = 'Elf'
 
 
 class DwarfCharacterRace(BaseCharacterRace):
-    id = 8
+    id = 'dwarf'
     name = 'Dwarf'
 
 
 class OrcCharacterRace(BaseCharacterRace):
-    id = 12
+    id = 'orc'
     name = 'Orc'
+
+
+ALL = [
+    HumanCharacterRace,
+    ElfCharacterRace,
+    DwarfCharacterRace,
+    OrcCharacterRace
+]
