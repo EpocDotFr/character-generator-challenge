@@ -1,3 +1,4 @@
+from character import Character
 import settings
 import logging
 import helpers
@@ -38,6 +39,8 @@ class Game:
     def _start_new_game(self):
         """Start a new game."""
         logging.info('Initializing new game')
+
+        self.character = Character('Boromir')
 
         # TODO
 

@@ -23,10 +23,19 @@ Clone this repo, and then the usual `pip install -r requirements.txt`.
 python run.py
 ```
 
-### Controls
+### How it works
 
-> TODO
+I obviously can't explain how it works here, so you'll have to jump yourself in the source code. Start with the entry
+point, `run.py`.
+
+## References
+
+  - [Character race](https://en.wikipedia.org/wiki/Character_race) (Wikipedia)
+  - [Character class](https://en.wikipedia.org/wiki/Character_class) (Wikipedia)
+  - [Attribute (role-playing games)](https://en.wikipedia.org/wiki/Attribute_(role-playing_games)) (Wikipedia)
+  - [Statistic (role-playing games): Skills](https://en.wikipedia.org/wiki/Statistic_(role-playing_games)#Skills) (Wikipedia)
 
 ## Credits
 
   - Icon by [Alpár-Etele Méder](https://www.iconfinder.com/icons/1531891/hat_witch_icon) (freeware)
+  - Font by [Annnie Mason](https://www.dafont.com/ardagh.font) (freeware)
