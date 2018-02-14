@@ -1,12 +1,19 @@
 from . import abilities
 from . import classes
 from . import races
+import random
 
 
 class Character:
     """Represents an RPG character."""
-    def __init__(self, name, race=races.HumanCharacterRace(), class_=classes.WarriorCharacterClass()):
+    abilities = abilities.CharacterAbilities()
+
+    def __init__(self, name=None, race=None, class_=None):
         self.name = name
         self.race = race
         self.class_ = class_
-        self.abilities = abilities.CharacterAbilities()
+
+    def randomize(self):
+        self.race = random.choice(races.ALL)()
+        self.class_ = random.choice(classes.ALL)()
+        self.abilities.randomize_values()

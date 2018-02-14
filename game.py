@@ -40,8 +40,8 @@ class Game:
         """Start a new game."""
         logging.info('Initializing new game')
 
-        self.character = Character('Boromir')
-        self.character.abilities.randomize_values()
+        self.character = Character()
+        self.character.randomize()
 
         # TODO
 

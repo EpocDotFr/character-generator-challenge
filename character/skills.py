@@ -15,9 +15,27 @@ class StealthCharacterSkill(BaseCharacterSkill):
     ]
 
 
-class FightCharacterSkill(BaseCharacterSkill):
-    id = 'fight'
-    name = 'Fight'
+class RangedWeaponsCharacterSkill(BaseCharacterSkill):
+    id = 'ranged_weapons'
+    name = 'Ranged weapons'
+
+    applicable_classes = [
+        classes.ThiefCharacterClass
+    ]
+
+
+class CloseCombatCharacterSkill(BaseCharacterSkill):
+    id = 'close_combat'
+    name = 'Close combat'
+
+    applicable_classes = [
+        classes.WarriorCharacterClass
+    ]
+
+
+class AtleticsCharacterSkill(BaseCharacterSkill):
+    id = 'Atletics'
+    name = 'Atletics'
 
     applicable_classes = [
         classes.WarriorCharacterClass

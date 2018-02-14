@@ -1,14 +1,11 @@
 import random
 
-MIN_VALUE = 0
-MAX_VALUE = 10
-
 
 class BaseCharacterAbility:
     """Base character ability to inherit from.
 
     Minimum value is 0, maximum value is 10."""
-    value = MIN_VALUE
+    value = 0
 
 
 class StrengthCharacterAbility(BaseCharacterAbility):
@@ -50,4 +47,4 @@ class CharacterAbilities:
         """Assign random values to all the abilities."""
 
         for ability in ALL:
-            getattr(self, ability.id).value = random.randint(MIN_VALUE, MAX_VALUE)
+            getattr(self, ability.id).value = random.randint(0, 4) # TODO Enhance
