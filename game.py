@@ -57,8 +57,6 @@ class Game:
                     break
 
         # Drawings
-        self.window.fill(settings.WINDOW_BACKGROUND_COLOR)
-
         # TODO
 
         # PyGame-related updates

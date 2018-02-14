@@ -29,4 +29,4 @@ python run.py
 
 ## Credits
 
-> TODO
+  - Icon by [Alpár-Etele Méder](https://www.iconfinder.com/icons/1531891/hat_witch_icon) (freeware)
