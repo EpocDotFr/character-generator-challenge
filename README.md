@@ -38,4 +38,4 @@ point, `run.py`.
 ## Credits
 
   - Icon by [Alpár-Etele Méder](https://www.iconfinder.com/icons/1531891/hat_witch_icon) (freeware)
-  - Font by [Annnie Mason](https://www.dafont.com/ardagh.font) (freeware)
+  - Font by [Susan K. Zalusky](https://www.dafont.com/celtic-gaelige.font) (freeware)
