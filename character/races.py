@@ -1,3 +1,6 @@
+import random
+
+
 class BaseCharacterRace:
     """Base character race to inherit from."""
     pass
@@ -29,3 +32,7 @@ ALL = [
     DwarfCharacterRace,
     OrcCharacterRace
 ]
+
+
+def pick_random():
+    return random.choice(ALL)()

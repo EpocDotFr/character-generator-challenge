@@ -1,7 +1,9 @@
+from faker import Faker
 from . import abilities
 from . import classes
 from . import races
-import random
+import faker.config
+import locale
 
 
 class Character:
@@ -14,6 +16,10 @@ class Character:
         self.class_ = class_
 
     def randomize(self):
-        self.race = random.choice(races.ALL)()
-        self.class_ = random.choice(classes.ALL)()
-        self.abilities.randomize_values()
+        default_locale = locale.getdefaultlocale()[0]
+        fake = Faker(default_locale if default_locale in faker.config.AVAILABLE_LOCALES else faker.config.DEFAULT_LOCALE)
+
+        self.name = fake.first_name_male()
+        self.race = races.pick_random()
+        self.class_ = classes.pick_random()
+        self.abilities.randomize()

@@ -1,3 +1,6 @@
+import random
+
+
 class BaseCharacterClass:
     """Base character class to inherit from."""
     pass
@@ -23,3 +26,7 @@ ALL = [
     WizardCharacterClass,
     ThiefCharacterClass
 ]
+
+
+def pick_random():
+    return random.choice(ALL)()

@@ -2,9 +2,7 @@ import random
 
 
 class BaseCharacterAbility:
-    """Base character ability to inherit from.
-
-    Minimum value is 0, maximum value is 10."""
+    """Base character ability to inherit from."""
     value = 0
 
 
@@ -43,7 +41,7 @@ class CharacterAbilities:
         for ability in ALL:
             setattr(self, ability.id, ability())
 
-    def randomize_values(self):
+    def randomize(self):
         """Assign random values to all the abilities."""
 
         for ability in ALL:
