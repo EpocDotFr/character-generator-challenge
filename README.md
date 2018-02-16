@@ -5,10 +5,6 @@ where the goal is to create a character generation GUI for an RPG-like game.
 
 > TODO Screenshot
 
-## Features
-
-> TODO
-
 ## Prerequisites
 
 Python 3. May eventually works with Python 2 (not tested).
@@ -37,5 +33,7 @@ point, `run.py`.
 
 ## Credits
 
-  - Icon by [Alpár-Etele Méder](https://www.iconfinder.com/icons/1531891/hat_witch_icon) (freeware)
+  - App icon by [Alpár-Etele Méder](https://www.iconfinder.com/icons/1531891/hat_witch_icon) (freeware)
   - Font by [Susan K. Zalusky](https://www.dafont.com/celtic-gaelige.font) (freeware)
+  - UI graphics by [Kenney](http://kenney.nl/assets/ui-pack-rpg-expansion) (CC0 1.0 Universal)
+  - Game icons by [Game-icons.net](http://game-icons.net/) (CC BY 3.0)

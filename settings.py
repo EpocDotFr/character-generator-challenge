@@ -3,7 +3,6 @@
 
 FPS = 30
 
-WINDOW_BACKGROUND_COLOR = (236, 227, 206)
 TEXT_COLOR = (51, 51, 51)
 
 # ----------------------------------------------------------------------
@@ -11,4 +10,4 @@ TEXT_COLOR = (51, 51, 51)
 
 RESOURCES_ROOT = 'resources'
 
-WINDOW_SIZE = (800, 600)
+WINDOW_SIZE = (490, 330)

@@ -42,7 +42,7 @@ class CharacterAbilities:
             setattr(self, ability.id, ability())
 
     def randomize(self):
-        """Assign random values to all the abilities."""
+        """Assign random values to all abilities."""
 
         for ability in ALL:
             getattr(self, ability.id).value = random.randint(0, 4) # TODO Enhance
