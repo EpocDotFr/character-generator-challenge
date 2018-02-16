@@ -96,22 +96,22 @@ class Game:
 
     def _draw_name_input(self):
         """Draw the character's name input."""
-        name_text = self.fonts['normal'].render(self.character.name, True, settings.TEXT_COLOR_LIGHT)
+        name_text = self.fonts['normal'].render(self.character.name, True, settings.TEXT_COLOR)
         name_text_rect = name_text.get_rect()
-        name_text_rect.left = 220
-        name_text_rect.top = 30
+        name_text_rect.left = 240
+        name_text_rect.top = 43
 
         self.window.blit(name_text, name_text_rect)
 
     def _draw_races_selector(self):
         """Draw images to choose the character's race."""
-        spacing = 250
+        spacing = 270
 
         for race in character.races.ALL:
             race_image = self.images['races']['active' if race == self.character.race else 'normal'][race.id]
             race_image_rect = race_image.get_rect()
             race_image_rect.right = spacing
-            race_image_rect.top = 60
+            race_image_rect.top = 76
 
             self.window.blit(race_image, race_image_rect)
 
@@ -119,13 +119,13 @@ class Game:
 
     def _draw_classes_selector(self):
         """Draw images to choose the character's class."""
-        spacing = 250
+        spacing = 270
 
         for class_ in character.classes.ALL:
             class_image = self.images['classes']['active' if class_ == self.character.class_ else 'normal'][class_.id]
             class_image_rect = class_image.get_rect()
             class_image_rect.right = spacing
-            class_image_rect.top = 100
+            class_image_rect.top = 116
 
             self.window.blit(class_image, class_image_rect)
 
@@ -133,47 +133,47 @@ class Game:
 
     def _draw_abilities(self):
         """Draw the character's abilities."""
-        spacing = 200
+        spacing = 235
 
         for ability in character.abilities.ALL:
             ability_image = self.images['abilities'][ability.id]
             ability_image_rect = ability_image.get_rect()
-            ability_image_rect.left = 20
+            ability_image_rect.left = 25
             ability_image_rect.top = spacing
 
             self.window.blit(ability_image, ability_image_rect)
 
-            ability_text = self.fonts['normal'].render(ability.name, True, settings.TEXT_COLOR_DARK)
+            ability_text = self.fonts['normal'].render(ability.name, True, settings.TEXT_COLOR)
             ability_text_rect = ability_text.get_rect()
-            ability_text_rect.left = 50
+            ability_text_rect.left = 55
             ability_text_rect.top = spacing
 
             self.window.blit(ability_text, ability_text_rect)
 
-            ability_value = self.fonts['normal'].render(str(ability.value), True, settings.TEXT_COLOR_DARK)
+            ability_value = self.fonts['normal'].render(str(ability.value), True, settings.TEXT_COLOR)
             ability_value_rect = ability_value.get_rect()
             ability_value_rect.left = 210
             ability_value_rect.top = spacing
 
             self.window.blit(ability_value, ability_value_rect)
 
-            spacing += 28
+            spacing += 30
 
     def _draw_skills(self):
         """Draw the character's skills."""
-        spacing = 200
+        spacing = 235
 
         for skill in self.character.skills:
             skill_image = self.images['skills'][skill.id]
             skill_image_rect = skill_image.get_rect()
-            skill_image_rect.left = 260
+            skill_image_rect.left = 265
             skill_image_rect.top = spacing
 
             self.window.blit(skill_image, skill_image_rect)
 
-            skill_text = self.fonts['normal'].render(skill.name, True, settings.TEXT_COLOR_DARK)
+            skill_text = self.fonts['normal'].render(skill.name, True, settings.TEXT_COLOR)
             skill_text_rect = skill_text.get_rect()
-            skill_text_rect.left = 290
+            skill_text_rect.left = 295
             skill_text_rect.top = spacing
 
             self.window.blit(skill_text, skill_text_rect)
