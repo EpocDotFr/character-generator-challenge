@@ -45,7 +45,10 @@ class Game:
                 'normal': {race.id: helpers.load_image('races/' + race.id + '.png') for race in character.races.ALL},
                 'active': {race.id: helpers.load_image('races/' + race.id + '_active.png') for race in character.races.ALL}
             },
-            'classes': {class_.id: helpers.load_image('classes/' + class_.id + '.png') for class_ in character.classes.ALL}
+            'classes': {
+                'normal': {class_.id: helpers.load_image('classes/' + class_.id + '.png') for class_ in character.classes.ALL},
+                'active': {class_.id: helpers.load_image('classes/' + class_.id + '_active.png') for class_ in character.classes.ALL}
+            }
         }
 
     def update(self):
@@ -119,7 +122,7 @@ class Game:
         spacing = 250
 
         for class_ in character.classes.ALL:
-            class_image = self.images['classes'][class_.id]
+            class_image = self.images['classes']['active' if class_ == self.character.class_ else 'normal'][class_.id]
             class_image_rect = class_image.get_rect()
             class_image_rect.right = spacing
             class_image_rect.top = 100
