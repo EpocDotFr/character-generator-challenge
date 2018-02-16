@@ -41,7 +41,10 @@ class Game:
             'window': helpers.load_image('window.png'),
             'abilities': {ability.id: helpers.load_image('abilities/' + ability.id + '.png') for ability in character.abilities.ALL},
             'skills': {skill.id: helpers.load_image('skills/' + skill.id + '.png') for skill in character.skills.ALL},
-            'races': {race.id: helpers.load_image('races/' + race.id + '.png') for race in character.races.ALL},
+            'races': {
+                'normal': {race.id: helpers.load_image('races/' + race.id + '.png') for race in character.races.ALL},
+                'active': {race.id: helpers.load_image('races/' + race.id + '_active.png') for race in character.races.ALL}
+            },
             'classes': {class_.id: helpers.load_image('classes/' + class_.id + '.png') for class_ in character.classes.ALL}
         }
 
@@ -102,7 +105,7 @@ class Game:
         spacing = 250
 
         for race in character.races.ALL:
-            race_image = self.images['races'][race.id]
+            race_image = self.images['races']['active' if race == self.character.race else 'normal'][race.id]
             race_image_rect = race_image.get_rect()
             race_image_rect.right = spacing
             race_image_rect.top = 60
