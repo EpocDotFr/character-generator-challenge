@@ -29,4 +29,5 @@ ALL = [
 
 
 def pick_random():
-    return random.choice(ALL)()
+    """Return a random class."""
+    return random.choice(ALL)

@@ -35,4 +35,5 @@ ALL = [
 
 
 def pick_random():
-    return random.choice(ALL)()
+    """Return a random race."""
+    return random.choice(ALL)

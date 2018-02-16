@@ -31,7 +31,7 @@ class StealthCharacterSkill(ThiefCharacterSkill):
     name = 'Stealth'
 
     required_abilities = {
-        abilities.IntelligenceCharacterAbility: 4
+        abilities.IntelligenceCharacterAbility: 2
     }
 
 
@@ -40,16 +40,16 @@ class PicklockCharacterSkill(ThiefCharacterSkill):
     name = 'Picklock'
 
     required_abilities = {
-        abilities.DexterityCharacterAbility: 5
+        abilities.DexterityCharacterAbility: 3
     }
 
 
-class BareHandedFightingCharacterSkill(WarriorCharacterSkill):
-    id = 'bare_handed_fighting'
-    name = 'Bare-handed fighting'
+class HighKickCharacterSkill(WarriorCharacterSkill):
+    id = 'high_kick'
+    name = 'High-kick'
 
     required_abilities = {
-        abilities.StrengthCharacterAbility: 6
+        abilities.StrengthCharacterAbility: 2
     }
 
 
@@ -58,7 +58,7 @@ class RunnerCharacterSkill(WarriorCharacterSkill):
     name = 'Runner'
 
     required_abilities = {
-        abilities.StrengthCharacterAbility: 7
+        abilities.StrengthCharacterAbility: 3
     }
 
 
@@ -67,7 +67,7 @@ class MagicalHealCharacterSkill(WizardCharacterSkill):
     name = 'Magical Heal'
 
     required_abilities = {
-        abilities.IntelligenceCharacterAbility: 6
+        abilities.IntelligenceCharacterAbility: 2
     }
 
 
@@ -76,14 +76,14 @@ class FireballCharacterSkill(WizardCharacterSkill):
     name = 'Fireball'
 
     required_abilities = {
-        abilities.IntelligenceCharacterAbility: 7
+        abilities.IntelligenceCharacterAbility: 3
     }
 
 
 ALL = [
     StealthCharacterSkill,
     PicklockCharacterSkill,
-    BareHandedFightingCharacterSkill,
+    HighKickCharacterSkill,
     RunnerCharacterSkill,
     MagicalHealCharacterSkill,
     FireballCharacterSkill

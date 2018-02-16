@@ -39,7 +39,7 @@ class CharacterAbilities:
 
     def __init__(self):
         for ability in ALL:
-            setattr(self, ability.id, ability())
+            setattr(self, ability.id, ability)
 
     def randomize(self):
         """Assign random values to all abilities."""
