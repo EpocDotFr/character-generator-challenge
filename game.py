@@ -1,5 +1,8 @@
 from character import Character
 import character.abilities
+import character.classes
+import character.skills
+import character.races
 import settings
 import logging
 import helpers
@@ -36,11 +39,23 @@ class Game:
 
         self.images = {
             'window': helpers.load_image('window.png'),
-            'abilities': {}
+            'abilities': {},
+            'skills': {},
+            'races': {},
+            'classes': {}
         }
+
+        for race in character.races.ALL:
+            self.images['races'][race.id] = helpers.load_image('races/' + race.id + '.png')
+
+        for class_ in character.classes.ALL:
+            self.images['classes'][class_.id] = helpers.load_image('classes/' + class_.id + '.png')
 
         for ability in character.abilities.ALL:
             self.images['abilities'][ability.id] = helpers.load_image('abilities/' + ability.id + '.png')
+
+        for skill in character.skills.ALL:
+            self.images['skills'][skill.id] = helpers.load_image('skills/' + skill.id + '.png')
 
     def update(self):
         """Perform every updates of the game logic, events handling and drawing.
@@ -60,6 +75,8 @@ class Game:
         # Drawings
         self.window.blit(self.images['window'], self.images['window'].get_rect())
 
+        self._draw_races_selector()
+        self._draw_classes_selector()
         self._draw_abilities()
 
         # PyGame-related updates
@@ -81,8 +98,34 @@ class Game:
     # --------------------------------------------------------------------------
     # Drawing handlers
 
+    def _draw_races_selector(self):
+        spacing = 250
+
+        for race in character.races.ALL:
+            race_image = self.images['races'][race.id]
+            race_image_rect = race_image.get_rect()
+            race_image_rect.right = spacing
+            race_image_rect.top = 60
+
+            self.window.blit(race_image, race_image_rect)
+
+            spacing += 50
+
+    def _draw_classes_selector(self):
+        spacing = 250
+
+        for class_ in character.classes.ALL:
+            class_image = self.images['classes'][class_.id]
+            class_image_rect = class_image.get_rect()
+            class_image_rect.right = spacing
+            class_image_rect.top = 100
+
+            self.window.blit(class_image, class_image_rect)
+
+            spacing += 50
+
     def _draw_abilities(self):
-        spacing = 205
+        spacing = 200
 
         for ability in character.abilities.ALL:
             ability_image = self.images['abilities'][ability.id]
@@ -106,4 +149,4 @@ class Game:
 
             self.window.blit(ability_value, ability_value_rect)
 
-            spacing += 25
+            spacing += 28

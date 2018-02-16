@@ -78,3 +78,13 @@ class FireballCharacterSkill(WizardCharacterSkill):
     required_abilities = {
         abilities.IntelligenceCharacterAbility: 7
     }
+
+
+ALL = [
+    StealthCharacterSkill,
+    PicklockCharacterSkill,
+    BareHandedFightingCharacterSkill,
+    RunnerCharacterSkill,
+    MagicalHealCharacterSkill,
+    FireballCharacterSkill
+]
