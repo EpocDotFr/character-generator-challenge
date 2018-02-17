@@ -17,6 +17,14 @@ class Character:
         self.race = race
         self.class_ = class_
 
+    @property
+    def class_(self):
+        return self.class__
+
+    @class_.setter
+    def class_(self, value):
+        self.class__ = value
+
         self.update_applicable_skills()
 
     def randomize(self):
@@ -24,12 +32,10 @@ class Character:
         default_locale = locale.getdefaultlocale()[0]
         fake = Faker(default_locale if default_locale in faker.config.AVAILABLE_LOCALES else faker.config.DEFAULT_LOCALE)
 
+        self.abilities.randomize()
         self.name = fake.first_name_male()
         self.race = races.pick_random()
         self.class_ = classes.pick_random()
-        self.abilities.randomize()
-
-        self.update_applicable_skills()
 
     def update_applicable_skills(self):
         """Set this players's skills according to its class and abilities score."""
@@ -51,3 +57,30 @@ class Character:
                 continue
 
             self.skills.append(skill)
+
+    def __str__(self):
+        """Return this character as a textual, Markdown representation."""
+        content = [
+            '# Character cheet',
+            '',
+            '  - **Name:** ' + self.name,
+            '  - **Race:** ' + str(self.race),
+            '  - **Class:** ' + str(self.class_),
+            '',
+            '## Abilities',
+            ''
+        ]
+
+        for ability in abilities.ALL:
+            content.append('  - **' + ability.name + ':** ' + str(getattr(self.abilities, ability.id).value))
+
+        content.extend([
+            '',
+            '## Skills',
+            ''
+        ])
+
+        for skill in self.skills:
+            content.append('  - ' + skill.name)
+
+        return '\n'.join(content)

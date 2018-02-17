@@ -24,6 +24,7 @@ class Game:
 
         self.character = Character()
         self.character.randomize()
+        print(str(self.character))
 
     def _load_fonts(self):
         """Load the fonts."""
@@ -150,7 +151,7 @@ class Game:
 
             self.window.blit(ability_text, ability_text_rect)
 
-            ability_value = self.fonts['normal'].render(str(ability.value), True, settings.TEXT_COLOR)
+            ability_value = self.fonts['normal'].render(str(getattr(self.character.abilities, ability.id).value), True, settings.TEXT_COLOR)
             ability_value_rect = ability_value.get_rect()
             ability_value_rect.left = 210
             ability_value_rect.top = spacing

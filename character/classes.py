@@ -3,7 +3,9 @@ import random
 
 class BaseCharacterClass:
     """Base character class to inherit from."""
-    pass
+    def __str__(self):
+        """Return this class as a textual representation."""
+        return self.name
 
 
 class WarriorCharacterClass(BaseCharacterClass):

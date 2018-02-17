@@ -3,7 +3,9 @@ import random
 
 class BaseCharacterRace:
     """Base character race to inherit from."""
-    pass
+    def __str__(self):
+        """Return this race as a textual representation."""
+        return self.name
 
 
 class HumanCharacterRace(BaseCharacterRace):
