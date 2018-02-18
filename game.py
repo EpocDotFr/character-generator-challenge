@@ -8,6 +8,7 @@ import logging
 import helpers
 import pygame
 import sys
+import gui
 
 
 class Game:
@@ -21,6 +22,7 @@ class Game:
 
         self._load_fonts()
         self._load_images()
+        self._load_gui()
 
         self.character = Character()
         self.character.randomize()
@@ -48,8 +50,24 @@ class Game:
             'classes': {
                 'normal': {class_.id: helpers.load_image('classes/' + class_.id + '.png') for class_ in character.classes.ALL},
                 'active': {class_.id: helpers.load_image('classes/' + class_.id + '_active.png') for class_ in character.classes.ALL}
+            },
+            'buttons': {
+                'exit': helpers.load_image('buttons/exit.png'),
+                'randomize': helpers.load_image('buttons/randomize.png'),
+                'save': helpers.load_image('buttons/save.png')
             }
         }
+
+    def _load_gui(self):
+        exit_button_rect = self.images['buttons']['exit'].get_rect()
+        exit_button_rect.bottom = self.window_rect.h - 10
+        exit_button_rect.right = self.window_rect.w - 10
+
+        gui.add(gui.Button(
+            self.images['buttons']['exit'],
+            exit_button_rect,
+            self._click_exit_button
+        ))
 
     def save_character_sheet(self):
         """Save the current character's sheet in a Markdown-formatted file."""
@@ -65,8 +83,8 @@ class Game:
         # Events handling
         for event in pygame.event.get():
             event_handlers = [
-                self._event_quit
-                # TODO
+                self._event_quit,
+                gui.event_handler
             ]
 
             for handler in event_handlers:
@@ -81,6 +99,8 @@ class Game:
         self._draw_classes_selector()
         self._draw_abilities()
         self._draw_skills()
+
+        gui.draw(self.window)
 
         # PyGame-related updates
         pygame.display.update()
@@ -97,6 +117,11 @@ class Game:
             sys.exit()
 
         return False
+
+    def _click_exit_button(self):
+        """Called when the Exit button is clicked."""
+        pygame.quit()
+        sys.exit()
 
     # --------------------------------------------------------------------------
     # Drawing handlers
