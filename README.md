@@ -11,12 +11,15 @@ where the goal is to create a character generation GUI for an RPG-like game.
   - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief)
   - Ability scores (Strength, Resistance, Dexterity and Intelligence) are randomly generated
   - Skills are defined based on class and ability scores (minimum required score). Available ones are:
+    - Lock Spy (Thief)
     - Stealth (Thief; Intelligence: 2)
     - Picklock (Thief; Intelligence: 3)
     - High-kick (Warrior; Strength: 2)
     - Runner (Warrior; Strength: 3)
+    - Earthquake (Warrior; Strength: 4)
     - Magical Heal (Wizard; Intelligence: 2)
     - Fireball (Wizard; Intelligence: 3)
+    - Dragon Bite (Wizard; Intelligence: 4)
   - Live preview of your character
   - Ability to randomize everything
   - Save you character's sheet as a Markdown file

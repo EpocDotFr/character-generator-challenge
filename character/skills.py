@@ -44,6 +44,11 @@ class PicklockCharacterSkill(ThiefCharacterSkill):
     }
 
 
+class LockSpyCharacterSkill(ThiefCharacterSkill):
+    id = 'lock_spy'
+    name = 'Lock Spy'
+
+
 class HighKickCharacterSkill(WarriorCharacterSkill):
     id = 'high_kick'
     name = 'High-kick'
@@ -59,6 +64,15 @@ class RunnerCharacterSkill(WarriorCharacterSkill):
 
     required_abilities = {
         abilities.StrengthCharacterAbility: 3
+    }
+
+
+class EarthquakeCharacterSkill(WarriorCharacterSkill):
+    id = 'earthquake'
+    name = 'Earthquake'
+
+    required_abilities = {
+        abilities.StrengthCharacterAbility: 4
     }
 
 
@@ -80,11 +94,23 @@ class FireballCharacterSkill(WizardCharacterSkill):
     }
 
 
+class DragonBiteCharacterSkill(WizardCharacterSkill):
+    id = 'dragon_bite'
+    name = 'Dragon Bite'
+
+    required_abilities = {
+        abilities.IntelligenceCharacterAbility: 4
+    }
+
+
 ALL = [
     StealthCharacterSkill,
     PicklockCharacterSkill,
+    LockSpyCharacterSkill,
     HighKickCharacterSkill,
     RunnerCharacterSkill,
+    EarthquakeCharacterSkill,
     MagicalHealCharacterSkill,
-    FireballCharacterSkill
+    FireballCharacterSkill,
+    DragonBiteCharacterSkill
 ]
