@@ -185,4 +185,4 @@ class Game:
 
             self.window.blit(skill_text, skill_text_rect)
 
-            spacing += 28
+            spacing += 30
