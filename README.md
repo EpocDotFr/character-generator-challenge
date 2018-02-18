@@ -38,11 +38,6 @@ Clone this repo, and then the usual `pip install -r requirements.txt`.
 python run.py
 ```
 
-### Controls
-
-  - <kbd>ESC</kbd> closes the application
-  - Your mouse
-
 ### How it works
 
 I obviously can't explain how it works here, so you'll have to jump yourself in the source code. Start with the entry
