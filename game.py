@@ -24,7 +24,6 @@ class Game:
 
         self.character = Character()
         self.character.randomize()
-        self.save_character_sheet()
 
     def _load_fonts(self):
         """Load the fonts."""
