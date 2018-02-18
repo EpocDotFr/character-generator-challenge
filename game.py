@@ -59,6 +59,7 @@ class Game:
         }
 
     def _load_gui(self):
+        """Load the GUI elements (i.e elements that are interactables)."""
         exit_button_rect = self.images['buttons']['exit'].get_rect()
         exit_button_rect.bottom = self.window_rect.h - 10
         exit_button_rect.right = self.window_rect.w - 10
