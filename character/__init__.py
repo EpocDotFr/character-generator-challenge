@@ -34,15 +34,23 @@ class Character:
 
         self.abilities.randomize()
         self.name = fake.first_name_male()
-        self.race = races.pick_random()
-        self.class_ = classes.pick_random()
+        self.race = races.pick_random()()
+        self.class_ = classes.pick_random()()
 
     def update_applicable_skills(self):
         """Set this players's skills according to its class and abilities score."""
         self.skills = []
 
         for skill in skills.ALL:
-            if self.class_ not in skill.applicable_classes:
+            cont = True
+
+            for class_ in skill.applicable_classes:
+                if isinstance(self.class_, class_):
+                    cont = False
+
+                    break
+
+            if cont:
                 continue
 
             cont = False
@@ -59,20 +67,20 @@ class Character:
             self.skills.append(skill)
 
     def __str__(self):
-        """Return this character as a textual, Markdown representation."""
+        """Return this character as a textual, Markdown-formatted representation."""
         content = [
-            '# Character cheet',
+            '# Character sheet',
             '',
-            '  - **Name:** ' + self.name,
-            '  - **Race:** ' + str(self.race),
-            '  - **Class:** ' + str(self.class_),
+            '  - Name: ' + self.name,
+            '  - Race: ' + str(self.race),
+            '  - Class: ' + str(self.class_),
             '',
             '## Abilities',
             ''
         ]
 
         for ability in abilities.ALL:
-            content.append('  - **' + ability.name + ':** ' + str(getattr(self.abilities, ability.id).value))
+            content.append('  - ' + ability.name + ': ' + str(getattr(self.abilities, ability.id).value))
 
         content.extend([
             '',
@@ -80,7 +88,10 @@ class Character:
             ''
         ])
 
-        for skill in self.skills:
-            content.append('  - ' + skill.name)
+        if not self.skills:
+            content.append('None applicable.')
+        else:
+            for skill in self.skills:
+                content.append('  - ' + skill.name)
 
         return '\n'.join(content)

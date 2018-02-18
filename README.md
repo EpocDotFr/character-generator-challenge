@@ -5,6 +5,22 @@ where the goal is to create a character generation GUI for an RPG-like game.
 
 > TODO Screenshot
 
+## Features
+
+  - Name your character or generate a random one (randomization is based on your current OS locale)
+  - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief)
+  - Ability scores (Strength, Resistance, Dexterity and Intelligence) are randomly generated
+  - Skills are defined based on class and ability scores (minimum required score). Available ones are:
+    - Stealth (Thief; Intelligence: 2)
+    - Picklock (Thief; Intelligence: 3)
+    - High-kick (Warrior; Strength: 2)
+    - Runner (Warrior; Strength: 3)
+    - Magical Heal (Wizard; Intelligence: 2)
+    - Fireball (Wizard; Intelligence: 3)
+  - Live preview of your character
+  - Ability to randomize everything
+  - Save you character's sheet as a Markdown file
+
 ## Prerequisites
 
 Python 3. May eventually works with Python 2 (not tested).
@@ -21,7 +37,7 @@ python run.py
 
 ### Controls
 
-  - <kbd>ESC</kbd> closes the game
+  - <kbd>ESC</kbd> closes the application
   - Your mouse
 
 ### How it works

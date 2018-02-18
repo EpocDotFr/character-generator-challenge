@@ -3,6 +3,8 @@
 
 FPS = 30
 
+CHARACTER_SHEET_FILE_NAME = 'character_sheet.md'
+
 TEXT_COLOR = (51, 51, 51)
 
 # ----------------------------------------------------------------------

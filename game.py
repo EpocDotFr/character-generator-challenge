@@ -24,7 +24,7 @@ class Game:
 
         self.character = Character()
         self.character.randomize()
-        print(str(self.character))
+        self.save_character_sheet()
 
     def _load_fonts(self):
         """Load the fonts."""
@@ -51,6 +51,13 @@ class Game:
                 'active': {class_.id: helpers.load_image('classes/' + class_.id + '_active.png') for class_ in character.classes.ALL}
             }
         }
+
+    def save_character_sheet(self):
+        """Save the current character's sheet in a Markdown-formatted file."""
+        logging.info('Saving character')
+
+        with open(settings.CHARACTER_SHEET_FILE_NAME, 'w', encoding='utf-8') as f:
+            f.write(str(self.character))
 
     def update(self):
         """Perform every updates of the game logic, events handling and drawing.
@@ -109,7 +116,7 @@ class Game:
         spacing = 270
 
         for race in character.races.ALL:
-            race_image = self.images['races']['active' if race == self.character.race else 'normal'][race.id]
+            race_image = self.images['races']['active' if isinstance(self.character.race, race) else 'normal'][race.id]
             race_image_rect = race_image.get_rect()
             race_image_rect.right = spacing
             race_image_rect.top = 76
@@ -123,7 +130,7 @@ class Game:
         spacing = 270
 
         for class_ in character.classes.ALL:
-            class_image = self.images['classes']['active' if class_ == self.character.class_ else 'normal'][class_.id]
+            class_image = self.images['classes']['active' if isinstance(self.character.class_, class_) else 'normal'][class_.id]
             class_image_rect = class_image.get_rect()
             class_image_rect.right = spacing
             class_image_rect.top = 116
