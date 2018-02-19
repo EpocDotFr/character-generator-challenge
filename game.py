@@ -61,6 +61,31 @@ class Game:
 
     def _load_gui(self):
         """Load the GUI elements (i.e elements the user can interact with)."""
+        # Character's race selector
+        race_selector = gui.RadioButtons(self._click_race_button, self.character.race.__class__)
+
+        spacing = 270
+
+        for race in character.races.ALL:
+            race_image_rect = self.images['races']['normal'][race.id].get_rect() # We don't care about the type of button rect we take
+            race_image_rect.right = spacing
+            race_image_rect.top = 76
+
+            race_selector.add(gui.RadioButton(
+                {
+                    'normal': self.images['races']['normal'][race.id],
+                    'selected': self.images['races']['active'][race.id]
+                },
+                race_image_rect,
+                race,
+                isinstance(self.character.race, race)
+            ))
+
+            spacing += 50
+
+        gui.add(race_selector)
+
+        # Randomize character name button
         randomize_name_button_rect = self.images['buttons']['randomize'].get_rect()
         randomize_name_button_rect.top = 35
         randomize_name_button_rect.right = self.window_rect.w - 20
@@ -130,7 +155,6 @@ class Game:
         self.window.blit(self.images['window'], self.images['window'].get_rect())
 
         self._draw_name_input()
-        self._draw_races_selector()
         self._draw_classes_selector()
         self._draw_abilities()
         self._draw_skills()
@@ -170,6 +194,10 @@ class Game:
         """Called when the Save character button is clicked."""
         self.save_character_sheet()
 
+    def _click_race_button(self, element):
+        """Called when the user selects a race."""
+        self.character.race = element.value()
+
     # --------------------------------------------------------------------------
     # Drawing handlers
 
@@ -181,20 +209,6 @@ class Game:
         name_text_rect.top = 43
 
         self.window.blit(name_text, name_text_rect)
-
-    def _draw_races_selector(self):
-        """Draw images to choose the character's race."""
-        spacing = 270
-
-        for race in character.races.ALL:
-            race_image = self.images['races']['active' if isinstance(self.character.race, race) else 'normal'][race.id]
-            race_image_rect = race_image.get_rect()
-            race_image_rect.right = spacing
-            race_image_rect.top = 76
-
-            self.window.blit(race_image, race_image_rect)
-
-            spacing += 50
 
     def _draw_classes_selector(self):
         """Draw images to choose the character's class."""

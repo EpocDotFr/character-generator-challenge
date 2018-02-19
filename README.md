@@ -7,7 +7,7 @@ where the goal is to create a character generation GUI for an RPG-like game.
 
 ## Features
 
-  - Name your character or generate a random one (randomization is based on your current OS locale)
+  - Name your character or generate a random one
   - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief)
   - Ability scores (Strength, Resistance, Dexterity and Intelligence) are randomly generated
   - Skills are defined based on class and ability scores (minimum required score). Available ones are:

@@ -3,12 +3,9 @@ from . import abilities
 from . import classes
 from . import skills
 from . import races
-import faker.config
-import locale
 
 
-default_locale = locale.getdefaultlocale()[0]
-fake = Faker(default_locale if default_locale in faker.config.AVAILABLE_LOCALES else faker.config.DEFAULT_LOCALE)
+fake = Faker()
 
 
 class Character:
