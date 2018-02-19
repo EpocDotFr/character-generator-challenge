@@ -22,10 +22,11 @@ class Game:
 
         self._load_fonts()
         self._load_images()
-        self._load_gui()
 
         self.character = Character()
-        self.character.randomize()
+        self.character.randomize_all()
+
+        self._load_gui()
 
     def _load_fonts(self):
         """Load the fonts."""
@@ -59,7 +60,37 @@ class Game:
         }
 
     def _load_gui(self):
-        """Load the GUI elements (i.e elements that are interactables)."""
+        """Load the GUI elements (i.e elements the user can interact with)."""
+        top_randomize_button_rect = self.images['buttons']['randomize'].get_rect()
+        top_randomize_button_rect.top = 35
+        top_randomize_button_rect.right = self.window_rect.w - 20
+
+        gui.add(gui.Button(
+            self.images['buttons']['randomize'],
+            top_randomize_button_rect,
+            self.character.randomize_name
+        ))
+
+        bottom_randomize_button_rect = self.images['buttons']['randomize'].get_rect()
+        bottom_randomize_button_rect.bottom = self.window_rect.h - 10
+        bottom_randomize_button_rect.right = self.window_rect.w - 110
+
+        gui.add(gui.Button(
+            self.images['buttons']['randomize'],
+            bottom_randomize_button_rect,
+            self.character.randomize_all
+        ))
+
+        save_button_rect = self.images['buttons']['save'].get_rect()
+        save_button_rect.bottom = self.window_rect.h - 10
+        save_button_rect.right = self.window_rect.w - 60
+
+        gui.add(gui.Button(
+            self.images['buttons']['save'],
+            save_button_rect,
+            self.save_character_sheet
+        ))
+
         exit_button_rect = self.images['buttons']['exit'].get_rect()
         exit_button_rect.bottom = self.window_rect.h - 10
         exit_button_rect.right = self.window_rect.w - 10
