@@ -61,26 +61,28 @@ class Game:
 
     def _load_gui(self):
         """Load the GUI elements (i.e elements the user can interact with)."""
-        top_randomize_button_rect = self.images['buttons']['randomize'].get_rect()
-        top_randomize_button_rect.top = 35
-        top_randomize_button_rect.right = self.window_rect.w - 20
+        randomize_name_button_rect = self.images['buttons']['randomize'].get_rect()
+        randomize_name_button_rect.top = 35
+        randomize_name_button_rect.right = self.window_rect.w - 20
 
         gui.add(gui.Button(
             self.images['buttons']['randomize'],
-            top_randomize_button_rect,
-            self.character.randomize_name
+            randomize_name_button_rect,
+            self._click_randomize_name_button
         ))
 
-        bottom_randomize_button_rect = self.images['buttons']['randomize'].get_rect()
-        bottom_randomize_button_rect.bottom = self.window_rect.h - 10
-        bottom_randomize_button_rect.right = self.window_rect.w - 110
+        # Randomize all character attributes button
+        randomize_all_button_rect = self.images['buttons']['randomize'].get_rect()
+        randomize_all_button_rect.bottom = self.window_rect.h - 10
+        randomize_all_button_rect.right = self.window_rect.w - 110
 
         gui.add(gui.Button(
             self.images['buttons']['randomize'],
-            bottom_randomize_button_rect,
-            self.character.randomize_all
+            randomize_all_button_rect,
+            self._click_randomize_all_button
         ))
 
+        # Save the character sheet as a Markdown file button
         save_button_rect = self.images['buttons']['save'].get_rect()
         save_button_rect.bottom = self.window_rect.h - 10
         save_button_rect.right = self.window_rect.w - 60
@@ -88,9 +90,10 @@ class Game:
         gui.add(gui.Button(
             self.images['buttons']['save'],
             save_button_rect,
-            self.save_character_sheet
+            self._click_save_button
         ))
 
+        # Exit button
         exit_button_rect = self.images['buttons']['exit'].get_rect()
         exit_button_rect.bottom = self.window_rect.h - 10
         exit_button_rect.right = self.window_rect.w - 10
@@ -150,10 +153,22 @@ class Game:
 
         return False
 
-    def _click_exit_button(self):
+    def _click_exit_button(self, element):
         """Called when the Exit button is clicked."""
         pygame.quit()
         sys.exit()
+
+    def _click_randomize_name_button(self, element):
+        """Called when the Randomize character name button is clicked."""
+        self.character.randomize_name()
+
+    def _click_randomize_all_button(self, element):
+        """Called when the Randomize all character attributes button is clicked."""
+        self.character.randomize_all()
+
+    def _click_save_button(self, element):
+        """Called when the Save character button is clicked."""
+        self.save_character_sheet()
 
     # --------------------------------------------------------------------------
     # Drawing handlers
