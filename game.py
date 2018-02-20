@@ -62,8 +62,6 @@ class Game:
     def _load_gui(self):
         """Load the GUI elements (i.e elements the user can interact with)."""
         # Character's race selector
-        race_selector = gui.RadioButtons(self._click_race_button, self.character.race.__class__)
-
         spacing = 270
 
         for race in character.races.ALL:
@@ -71,19 +69,19 @@ class Game:
             race_image_rect.right = spacing
             race_image_rect.top = 76
 
-            race_selector.add(gui.RadioButton(
+            gui.add(gui.RadioButton(
                 {
                     'normal': self.images['races']['normal'][race.id],
                     'selected': self.images['races']['active'][race.id]
                 },
                 race_image_rect,
+                'race',
                 race,
-                isinstance(self.character.race, race)
+                on_click=self._click_race_button,
+                selected=isinstance(self.character.race, race)
             ))
 
             spacing += 50
-
-        gui.add(race_selector)
 
         # Randomize character name button
         randomize_name_button_rect = self.images['buttons']['randomize'].get_rect()
