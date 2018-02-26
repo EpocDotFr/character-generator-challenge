@@ -22,7 +22,7 @@ where the goal is to create a character generation GUI for an RPG-like game.
     - Dragon Bite (Wizard; Intelligence: 4)
   - Live preview of your character
   - Ability to randomize everything
-  - Save you character's sheet as a Markdown file
+  - Save you character's sheet as a text file
 
 ## Prerequisites
 

@@ -69,7 +69,7 @@ class Character:
             self.skills.append(skill)
 
     def __str__(self):
-        """Return this character as a textual, Markdown-formatted representation."""
+        """Return this character as a textual representation."""
         content = [
             '# Character sheet',
             '',

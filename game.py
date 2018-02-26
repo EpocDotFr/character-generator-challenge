@@ -105,7 +105,7 @@ class Game:
             self._click_randomize_all_button
         ))
 
-        # Save the character sheet as a Markdown file button
+        # Save the character sheet in a text file button
         save_button_rect = self.images['buttons']['save'].get_rect()
         save_button_rect.bottom = self.window_rect.h - 10
         save_button_rect.right = self.window_rect.w - 60
@@ -128,7 +128,7 @@ class Game:
         ))
 
     def save_character_sheet(self):
-        """Save the current character's sheet in a Markdown-formatted file."""
+        """Save the current character's sheet in a text file."""
         logging.info('Saving character')
 
         with open(settings.CHARACTER_SHEET_FILE_NAME, 'w', encoding='utf-8') as f:
