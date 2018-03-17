@@ -27,6 +27,8 @@ def event_handler(event):
 
 
 class Button(pygame.sprite.Sprite):
+    is_hovered = False
+
     """A simple button."""
     def __init__(self, image, rect, on_click=None):
         pygame.sprite.Sprite.__init__(self)
@@ -37,15 +39,30 @@ class Button(pygame.sprite.Sprite):
 
     def event_handler(self, event):
         """Handle the PyGame event and run the appropriate callbacks if related to this button."""
-        if self.on_click is None or event.type != pygame.MOUSEBUTTONDOWN or not self.rect.collidepoint(event.pos):
-            return False
+        if self.on_click is not None and event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
+            self.on_click(self)
 
-        self.on_click(self)
+            return True
+        elif event.type == pygame.MOUSEMOTION:
+            if not self.is_hovered and self.rect.collidepoint(event.pos):
+                self.is_hovered = True
 
-        return True
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+
+                return True
+            elif self.is_hovered and not self.rect.collidepoint(event.pos):
+                self.is_hovered = False
+
+                pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
+                return True
+
+        return False
 
 
 class RadioButton(pygame.sprite.Sprite):
+    is_hovered = False
+
     """A radio button."""
     def __init__(self, images, rect, name, value, on_click=None, selected=False):
         pygame.sprite.Sprite.__init__(self)
@@ -62,23 +79,36 @@ class RadioButton(pygame.sprite.Sprite):
 
     def event_handler(self, event):
         """Handle the PyGame event if related to this radio buttons collection."""
-        if event.type != pygame.MOUSEBUTTONDOWN or not self.rect.collidepoint(event.pos):
-            return False
+        if event.type == pygame.MOUSEBUTTONDOWN and self.rect.collidepoint(event.pos):
+            for element in elements:
+                if not isinstance(element, RadioButton) or element.name != self.name:
+                    continue
 
-        for element in elements:
-            if not isinstance(element, RadioButton) or element.name != self.name:
-                continue
+                element.selected = False
 
-            element.selected = False
+            self.selected = True
 
-        self.selected = True
+            self.update_buttons_group()
 
-        self.update_buttons_group()
+            if self.on_click:
+                self.on_click(self)
 
-        if self.on_click:
-            self.on_click(self)
+            return True
+        elif event.type == pygame.MOUSEMOTION:
+            if not self.is_hovered and self.rect.collidepoint(event.pos):
+                self.is_hovered = True
 
-        return True
+                pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+
+                return True
+            elif self.is_hovered and not self.rect.collidepoint(event.pos):
+                self.is_hovered = False
+
+                pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
+                return True
+
+        return False
 
     def update(self):
         if self.selected:
