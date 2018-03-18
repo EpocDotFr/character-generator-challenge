@@ -1,11 +1,8 @@
-from faker import Faker
+from .name_generator import NameGenerator
 from . import abilities
 from . import classes
 from . import skills
 from . import races
-
-
-fake = Faker()
 
 
 class Character:
@@ -31,13 +28,13 @@ class Character:
     def randomize_all(self):
         """Randomize this character's attributes."""
         self.abilities.randomize()
-        self.name = fake.first_name_male()
+        self.name = NameGenerator.generate_name(2, 5)
         self.race = races.pick_random()()
         self.class_ = classes.pick_random()()
 
     def randomize_name(self):
         """Sets a randome name this this character."""
-        self.name = fake.first_name_male()
+        self.name = NameGenerator.generate_name(2, 5)
 
     def update_applicable_skills(self):
         """Set this players's skills according to its class and abilities score."""
