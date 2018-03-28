@@ -3,12 +3,16 @@
 My participation to the [PyGame](http://www.pygame.org/) challenge "[Character Generator](https://www.reddit.com/r/pygame/comments/7w8c4j/challenge_character_generator/)"
 where the goal is to create a character generation GUI for an RPG-like game.
 
-> TODO Screenshot
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EpocDotFr/character-generator-challenge/master/screenshot.png">
+</p>
 
 ## Features
 
-  - Name your character or generate a random one
-  - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief)
+Not all features are implemented, and will not be. These ones are striked out.
+
+  - ~~Name your character~~ or generate a random one
+  - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief) (**manually choosing isn't fully implemented and/or not working well**)
   - Ability scores (Strength, Resistance, Dexterity and Intelligence) are randomly generated
   - Skills are defined based on class and ability scores (minimum required score). Available ones are:
     - Lock Spy (Thief)
@@ -20,7 +24,7 @@ where the goal is to create a character generation GUI for an RPG-like game.
     - Magical Heal (Wizard; Intelligence: 2)
     - Fireball (Wizard; Intelligence: 3)
     - Dragon Bite (Wizard; Intelligence: 4)
-  - Live preview of your character
+  - ~~Live preview of your character~~
   - Ability to randomize everything
   - Save you character's sheet as a text file
 
