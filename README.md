@@ -9,7 +9,7 @@ where the goal is to create a character generation GUI for an RPG-like game.
 
 ## Features
 
-Not all features are implemented, and will not be. These ones are striked out.
+Not all features are implemented, and will never be. These ones are striked out.
 
   - ~~Name your character~~ or generate a random one
   - Choose you character's race (Human, Elf, Dwarf or Orc) and class (Warrior, Wizard or Thief) (**manually choosing isn't fully implemented and/or not working well**)
